@@ -1,0 +1,36 @@
+
+psutil
+pyyaml
+pandas
+tqdm
+gpustat
+nvitop
+modelscope     
+addict    
+tabulate
+
+# transformers==4.46.1 #stable
+transformers==4.51.1
+peft              # lora
+# flash-attn
+# vllm==0.6.4.post1 # To run Deepseek-V3, one need vllm>=0.6.6 (based on glibc >= 2.27)
+# vllm==0.8.3
+openai                # for api calling
+datasets
+accelerate
+
+nltk                  #babilong
+seaborn               #babilong
+
+tenacity           
+wonderwords           
+rouge            
+jieba             
+fuzzywuzzy         
+
+
+
+deepspeed
+wandb
+ray
+loralib

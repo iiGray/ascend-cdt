@@ -1,0 +1,28 @@
+2025-02-06 19:03:57,309 INFO    MainThread:171231 [wandb_setup.py:_flush():76] Current SDK version is 0.17.4
+2025-02-06 19:03:57,309 INFO    MainThread:171231 [wandb_setup.py:_flush():76] Configure stats pid to 171231
+2025-02-06 19:03:57,309 INFO    MainThread:171231 [wandb_setup.py:_flush():76] Loading settings from /root/.config/wandb/settings
+2025-02-06 19:03:57,309 INFO    MainThread:171231 [wandb_setup.py:_flush():76] Loading settings from /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/settings
+2025-02-06 19:03:57,309 INFO    MainThread:171231 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2025-02-06 19:03:57,309 INFO    MainThread:171231 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2025-02-06 19:03:57,309 INFO    MainThread:171231 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'openrlhf/cli/context_denoise/train_sft.py', 'program_abspath': '/data/zecheng/acl2025/MyRLHF/openrlhf/cli/context_denoise/train_sft.py', 'program': '/data/zecheng/acl2025/MyRLHF/openrlhf/cli/context_denoise/train_sft.py'}
+2025-02-06 19:03:57,309 INFO    MainThread:171231 [wandb_setup.py:_flush():76] Applying login settings: {}
+2025-02-06 19:03:57,309 INFO    MainThread:171231 [wandb_init.py:_log_setup():529] Logging user logs to /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/logs/debug.log
+2025-02-06 19:03:57,309 INFO    MainThread:171231 [wandb_init.py:_log_setup():530] Logging internal logs to /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/logs/debug-internal.log
+2025-02-06 19:03:57,309 INFO    MainThread:171231 [wandb_init.py:init():569] calling init triggers
+2025-02-06 19:03:57,309 INFO    MainThread:171231 [wandb_init.py:init():576] wandb.init called with sweep_config: {}
+config: {'direction': 'opposite', 'save_path': '/data/zecheng/ckpt/long-context-training-V2/Qwen2.5-7B-Instruct/full_v1', 'save_steps': 100, 'logging_steps': 1, 'eval_steps': 25, 'ckpt_path': '/data/zecheng/ckpt/long-context-training-V2/Qwen2.5-7B-Instruct/full_v1', 'max_ckpt_num': 20, 'max_ckpt_mem': 100000000.0, 'load_checkpoint': False, 'micro_train_batch_size': 1, 'train_batch_size': 32, 'max_norm': 1.0, 'gradient_checkpointing': True, 'seed': 42, 'local_rank': 0, 'zero_stage': 2, 'bf16': True, 'zpg': 1, 'adam_offload': False, 'flash_attn': True, 'grad_accum_dtype': None, 'overlap_comm': False, 'gradient_checkpointing_use_reentrant': False, 'disable_fast_tokenizer': True, 'max_epochs': 2, 'aux_loss_coef': 0, 'pretrain': '/data/hf_models/Qwen2.5-7B-Instruct', 'learning_rate': 2e-06, 'lr_warmup_ratio': 0.03, 'pretrain_mode': False, 'lr_scheduler': 'cosine_with_min_lr', 'l2': 0, 'adam_betas': (0.9, 0.95), 'adv_epsilon': None, 'perturb_type': 'embedding', 'loss_weight': 1.0, 'huggingface_key': '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', 'ring_attn_size': 2, 'ring_head_stride': 1, 'load_in_4bit': False, 'lora_rank': 0, 'lora_alpha': 16, 'target_modules': 'all-linear', 'lora_dropout': 0, 'packing_samples': True, 'dataset': '/data/pub_data/ZetangForward/Long-context-training-V2', 'dataset_probs': '1.0', 'train_split': 'train', 'eval_split': 'test', 'input_key': 'message', 'output_key': None, 'input_template': None, 'apply_chat_template': True, 'search_clue_seg': False, 'tokenizer_chat_template': None, 'max_samples': 100000000.0, 'max_len': 128000, 'num_processors': 16, 'use_wandb': 'f81f2a236e712350a0ec153e02f43d1366c856a5', 'wandb_org': None, 'wandb_group': None, 'wandb_project': 'long-context-training-V2', 'wandb_run_name': 'Qwen2.5-7B-Instruct-embedding-epsilon_lr_2e-6', 'use_tensorboard': None}
+2025-02-06 19:03:57,310 INFO    MainThread:171231 [wandb_init.py:init():619] starting backend
+2025-02-06 19:03:57,310 INFO    MainThread:171231 [wandb_init.py:init():623] setting up manager
+2025-02-06 19:03:57,310 INFO    MainThread:171231 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-02-06 19:03:57,311 INFO    MainThread:171231 [wandb_init.py:init():631] backend started and connected
+2025-02-06 19:03:57,313 INFO    MainThread:171231 [wandb_init.py:init():720] updated telemetry
+2025-02-06 19:03:57,317 INFO    MainThread:171231 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2025-02-06 19:03:58,043 INFO    MainThread:171231 [wandb_run.py:_on_init():2402] communicating current version
+2025-02-06 19:03:58,441 INFO    MainThread:171231 [wandb_run.py:_on_init():2411] got version response upgrade_message: "wandb version 0.19.6 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2025-02-06 19:03:58,441 INFO    MainThread:171231 [wandb_init.py:init():804] starting run threads in backend
+2025-02-06 19:04:05,160 INFO    MainThread:171231 [wandb_run.py:_console_start():2380] atexit reg
+2025-02-06 19:04:05,160 INFO    MainThread:171231 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2025-02-06 19:04:05,160 INFO    MainThread:171231 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2025-02-06 19:04:05,160 INFO    MainThread:171231 [wandb_run.py:_redirect():2325] Redirects installed.
+2025-02-06 19:04:05,161 INFO    MainThread:171231 [wandb_init.py:init():847] run started, returning control to user process

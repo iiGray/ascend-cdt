@@ -1,0 +1,190 @@
+2025-02-06 19:03:57,312 INFO    StreamThr :5551 [internal.py:wandb_internal():85] W&B internal server running at pid: 5551, started at: 2025-02-06 19:03:57.311969
+2025-02-06 19:03:57,313 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status
+2025-02-06 19:03:57,315 INFO    WriterThread:5551 [datastore.py:open_for_write():87] open: /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/run-eiacv7vb.wandb
+2025-02-06 19:03:57,316 DEBUG   SenderThread:5551 [sender.py:send():379] send: header
+2025-02-06 19:03:57,318 DEBUG   SenderThread:5551 [sender.py:send():379] send: run
+2025-02-06 19:03:58,037 INFO    SenderThread:5551 [dir_watcher.py:__init__():211] watching files in: /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/files
+2025-02-06 19:03:58,037 INFO    SenderThread:5551 [sender.py:_start_run_threads():1188] run started: eiacv7vb with start time 1738839837.311643
+2025-02-06 19:03:58,043 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: check_version
+2025-02-06 19:03:58,044 DEBUG   SenderThread:5551 [sender.py:send_request():406] send_request: check_version
+2025-02-06 19:03:58,445 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: run_start
+2025-02-06 19:03:58,501 DEBUG   HandlerThread:5551 [system_info.py:__init__():26] System info init
+2025-02-06 19:03:58,501 DEBUG   HandlerThread:5551 [system_info.py:__init__():41] System info init done
+2025-02-06 19:03:58,501 INFO    HandlerThread:5551 [system_monitor.py:start():194] Starting system monitor
+2025-02-06 19:03:58,501 INFO    SystemMonitor:5551 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-02-06 19:03:58,502 INFO    HandlerThread:5551 [system_monitor.py:probe():214] Collecting system info
+2025-02-06 19:03:58,502 INFO    SystemMonitor:5551 [interfaces.py:start():188] Started cpu monitoring
+2025-02-06 19:03:58,503 INFO    SystemMonitor:5551 [interfaces.py:start():188] Started disk monitoring
+2025-02-06 19:03:58,503 INFO    SystemMonitor:5551 [interfaces.py:start():188] Started gpu monitoring
+2025-02-06 19:03:58,504 INFO    SystemMonitor:5551 [interfaces.py:start():188] Started memory monitoring
+2025-02-06 19:03:58,504 INFO    SystemMonitor:5551 [interfaces.py:start():188] Started network monitoring
+2025-02-06 19:03:58,608 DEBUG   HandlerThread:5551 [system_info.py:probe():152] Probing system
+2025-02-06 19:03:58,611 DEBUG   HandlerThread:5551 [system_info.py:_probe_git():137] Probing git
+2025-02-06 19:03:58,618 DEBUG   HandlerThread:5551 [system_info.py:_probe_git():145] Probing git done
+2025-02-06 19:03:58,618 DEBUG   HandlerThread:5551 [system_info.py:probe():200] Probing system done
+2025-02-06 19:03:58,618 DEBUG   HandlerThread:5551 [system_monitor.py:probe():223] {'os': 'Linux-3.10.0-1160.el7.x86_64-x86_64-with-glibc2.17', 'python': '3.10.14', 'heartbeatAt': '2025-02-06T11:03:58.608933', 'startedAt': '2025-02-06T11:03:57.308421', 'docker': None, 'cuda': None, 'args': ('--local_rank=0', '--max_len', '128000', '--dataset', '/data/pub_data/ZetangForward/Long-context-training-V2', '--train_batch_size', '32', '--micro_train_batch_size', '1', '--pretrain', '/data/hf_models/Qwen2.5-7B-Instruct', '--save_path', '/data/zecheng/ckpt/long-context-training-V2/Qwen2.5-7B-Instruct/full_v1', '--ckpt_path', '/data/zecheng/ckpt/long-context-training-V2/Qwen2.5-7B-Instruct/full_v1', '--save_steps', '100', '--logging_steps', '1', '--eval_steps', '25', '--zero_stage', '2', '--max_ckpt_num', '20', '--max_epochs', '2', '--input_key', 'message', '--packing_samples', '--perturb_type', 'embedding', '--bf16', '--direction', 'opposite', '--num_processors', '16', '--learning_rate', '2e-6', '--flash_attn', '--apply_chat_template', '--gradient_checkpointing', '--disable_fast_tokenizer', '--use_wandb', 'f81f2a236e712350a0ec153e02f43d1366c856a5', '--huggingface_key', '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', '--wandb_project', 'long-context-training-V2', '--wandb_run_name', 'Qwen2.5-7B-Instruct-embedding-epsilon_lr_2e-6', '--ring_attn_size', '2', '--ring_head_stride', '1'), 'state': 'running', 'program': '/data/zecheng/acl2025/MyRLHF/openrlhf/cli/context_denoise/train_sft.py', 'codePathLocal': 'cli/context_denoise/train_sft.py', 'codePath': 'openrlhf/cli/context_denoise/train_sft.py', 'git': {'remote': 'https://gitlab.com/ZetangForward1/MyRLHF.git', 'commit': '00e35decc500bbbc42b6968049634e376ee0b4d1'}, 'email': 'zecheng.tang@foxmail.com', 'root': '/data/zecheng/acl2025/MyRLHF', 'host': 'gpu015', 'username': 'root', 'executable': '/data/anaconda3/envs/zecheng/bin/python3.10', 'cpu_count': 96, 'cpu_count_logical': 192, 'cpu_freq': {'current': 1548.1979166666667, 'min': 800.0, 'max': 2401.0}, 'cpu_freq_per_core': [{'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 1100.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 1700.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 2200.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 1600.0, 'min': 800.0, 'max': 2401.0}, {'current': 900.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 2100.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 1600.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2300.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 2300.0, 'min': 800.0, 'max': 2401.0}, {'current': 1300.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2300.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2200.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2100.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2100.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 1900.0, 'min': 800.0, 'max': 2401.0}, {'current': 1600.0, 'min': 800.0, 'max': 2401.0}, {'current': 1700.0, 'min': 800.0, 'max': 2401.0}, {'current': 1900.0, 'min': 800.0, 'max': 2401.0}, {'current': 1900.0, 'min': 800.0, 'max': 2401.0}, {'current': 1900.0, 'min': 800.0, 'max': 2401.0}, {'current': 1900.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 2200.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2200.0, 'min': 800.0, 'max': 2401.0}, {'current': 1900.0, 'min': 800.0, 'max': 2401.0}, {'current': 2100.0, 'min': 800.0, 'max': 2401.0}, {'current': 2200.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2200.0, 'min': 800.0, 'max': 2401.0}, {'current': 1400.0, 'min': 800.0, 'max': 2401.0}, {'current': 1300.0, 'min': 800.0, 'max': 2401.0}, {'current': 2100.0, 'min': 800.0, 'max': 2401.0}, {'current': 1600.0, 'min': 800.0, 'max': 2401.0}, {'current': 1500.0, 'min': 800.0, 'max': 2401.0}, {'current': 2100.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2300.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2100.0, 'min': 800.0, 'max': 2401.0}, {'current': 2100.0, 'min': 800.0, 'max': 2401.0}, {'current': 2200.0, 'min': 800.0, 'max': 2401.0}, {'current': 1900.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2200.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2300.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2100.0, 'min': 800.0, 'max': 2401.0}, {'current': 1500.0, 'min': 800.0, 'max': 2401.0}, {'current': 2300.0, 'min': 800.0, 'max': 2401.0}, {'current': 2100.0, 'min': 800.0, 'max': 2401.0}, {'current': 1900.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2200.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2401.0, 'min': 800.0, 'max': 2401.0}, {'current': 2100.0, 'min': 800.0, 'max': 2401.0}, {'current': 800.0, 'min': 800.0, 'max': 2401.0}, {'current': 2200.0, 'min': 800.0, 'max': 2401.0}, {'current': 2200.0, 'min': 800.0, 'max': 2401.0}], 'disk': {'/': {'total': 893.8153076171875, 'used': 429.4106216430664}}, 'gpu': 'NVIDIA H20', 'gpu_count': 8, 'gpu_devices': [{'name': 'NVIDIA H20', 'memory_total': 102625181696}, {'name': 'NVIDIA H20', 'memory_total': 102625181696}, {'name': 'NVIDIA H20', 'memory_total': 102625181696}, {'name': 'NVIDIA H20', 'memory_total': 102625181696}, {'name': 'NVIDIA H20', 'memory_total': 102625181696}, {'name': 'NVIDIA H20', 'memory_total': 102625181696}, {'name': 'NVIDIA H20', 'memory_total': 102625181696}, {'name': 'NVIDIA H20', 'memory_total': 102625181696}], 'memory': {'total': 1511.3046989440918}}
+2025-02-06 19:03:58,618 INFO    HandlerThread:5551 [system_monitor.py:probe():224] Finished collecting system info
+2025-02-06 19:03:58,618 INFO    HandlerThread:5551 [system_monitor.py:probe():227] Publishing system info
+2025-02-06 19:03:58,619 DEBUG   HandlerThread:5551 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2025-02-06 19:03:59,038 INFO    Thread-12 :5551 [dir_watcher.py:_on_file_created():271] file/dir created: /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/files/conda-environment.yaml
+2025-02-06 19:04:04,840 DEBUG   HandlerThread:5551 [system_info.py:_save_conda():224] Saving conda packages done
+2025-02-06 19:04:04,844 INFO    HandlerThread:5551 [system_monitor.py:probe():229] Finished publishing system info
+2025-02-06 19:04:04,853 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:04:04,853 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: keepalive
+2025-02-06 19:04:04,854 DEBUG   SenderThread:5551 [sender.py:send():379] send: files
+2025-02-06 19:04:04,854 INFO    SenderThread:5551 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-02-06 19:04:05,038 INFO    Thread-12 :5551 [dir_watcher.py:_on_file_modified():288] file/dir modified: /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/files/conda-environment.yaml
+2025-02-06 19:04:05,039 INFO    Thread-12 :5551 [dir_watcher.py:_on_file_created():271] file/dir created: /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/files/wandb-metadata.json
+2025-02-06 19:04:05,159 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: python_packages
+2025-02-06 19:04:05,160 DEBUG   SenderThread:5551 [sender.py:send_request():406] send_request: python_packages
+2025-02-06 19:04:05,161 DEBUG   SenderThread:5551 [sender.py:send():379] send: telemetry
+2025-02-06 19:04:05,162 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:05,162 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-06 19:04:05,163 DEBUG   SenderThread:5551 [sender.py:send():379] send: telemetry
+2025-02-06 19:04:05,164 DEBUG   SenderThread:5551 [sender.py:send_request():406] send_request: stop_status
+2025-02-06 19:04:05,634 DEBUG   SenderThread:5551 [sender.py:send():379] send: metric
+2025-02-06 19:04:05,634 DEBUG   SenderThread:5551 [sender.py:send():379] send: telemetry
+2025-02-06 19:04:05,634 DEBUG   SenderThread:5551 [sender.py:send():379] send: metric
+2025-02-06 19:04:05,634 WARNING SenderThread:5551 [sender.py:send_metric():1405] Seen metric with glob (shouldn't happen)
+2025-02-06 19:04:05,634 DEBUG   SenderThread:5551 [sender.py:send():379] send: metric
+2025-02-06 19:04:05,634 DEBUG   SenderThread:5551 [sender.py:send():379] send: metric
+2025-02-06 19:04:05,634 WARNING SenderThread:5551 [sender.py:send_metric():1405] Seen metric with glob (shouldn't happen)
+2025-02-06 19:04:06,039 INFO    Thread-12 :5551 [dir_watcher.py:_on_file_created():271] file/dir created: /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/files/requirements.txt
+2025-02-06 19:04:06,039 INFO    Thread-12 :5551 [dir_watcher.py:_on_file_created():271] file/dir created: /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/files/output.log
+2025-02-06 19:04:06,048 INFO    wandb-upload_0:5551 [upload_job.py:push():130] Uploaded file /tmp/tmpamshonlvwandb/ix32hc40-wandb-metadata.json
+2025-02-06 19:04:06,160 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:07,160 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:07,636 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:04:08,040 INFO    Thread-12 :5551 [dir_watcher.py:_on_file_modified():288] file/dir modified: /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/files/output.log
+2025-02-06 19:04:08,160 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:09,161 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:10,040 INFO    Thread-12 :5551 [dir_watcher.py:_on_file_modified():288] file/dir modified: /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/files/output.log
+2025-02-06 19:04:10,161 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:11,173 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:12,173 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:12,842 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:04:13,176 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:14,041 INFO    Thread-12 :5551 [dir_watcher.py:_on_file_modified():288] file/dir modified: /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/files/output.log
+2025-02-06 19:04:14,176 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:15,176 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:16,176 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:17,176 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:18,160 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:04:18,176 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:19,177 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:20,160 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-06 19:04:20,160 DEBUG   SenderThread:5551 [sender.py:send_request():406] send_request: stop_status
+2025-02-06 19:04:20,199 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:21,177 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:22,177 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:23,177 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:23,506 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:04:24,177 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:25,177 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:26,178 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:27,177 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:28,177 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:29,166 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:04:29,177 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:30,044 INFO    Thread-12 :5551 [dir_watcher.py:_on_file_modified():288] file/dir modified: /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/files/config.yaml
+2025-02-06 19:04:30,178 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:31,178 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:32,214 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:33,214 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:34,214 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:35,160 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-06 19:04:35,160 DEBUG   SenderThread:5551 [sender.py:send_request():406] send_request: stop_status
+2025-02-06 19:04:35,214 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:35,525 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:04:36,214 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:37,214 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:38,214 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:39,214 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:40,214 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:41,161 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:04:41,214 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:42,250 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:43,250 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:44,250 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:45,250 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:46,250 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:47,161 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:04:47,250 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:48,250 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:49,251 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:50,160 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-06 19:04:50,161 DEBUG   SenderThread:5551 [sender.py:send_request():406] send_request: stop_status
+2025-02-06 19:04:50,250 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:51,251 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:52,251 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:52,412 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:04:53,251 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:54,047 INFO    Thread-12 :5551 [dir_watcher.py:_on_file_modified():288] file/dir modified: /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/files/output.log
+2025-02-06 19:04:54,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:55,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:56,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:57,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:58,162 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:04:58,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:04:58,505 DEBUG   SystemMonitor:5551 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-02-06 19:04:58,511 DEBUG   SenderThread:5551 [sender.py:send():379] send: stats
+2025-02-06 19:04:59,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:00,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:01,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:02,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:03,162 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:05:03,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:04,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:05,160 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-06 19:05:05,161 DEBUG   SenderThread:5551 [sender.py:send_request():406] send_request: stop_status
+2025-02-06 19:05:05,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:06,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:07,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:08,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:08,443 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:05:09,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:10,253 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:11,254 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:12,254 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:13,254 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:14,162 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:05:14,254 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:15,254 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:16,254 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:17,254 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:18,254 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:19,254 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:20,160 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-06 19:05:20,161 DEBUG   SenderThread:5551 [sender.py:send_request():406] send_request: stop_status
+2025-02-06 19:05:20,254 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:20,508 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:05:21,254 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:22,254 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:23,254 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:24,254 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:25,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:26,162 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:05:26,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:27,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:28,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:28,516 DEBUG   SenderThread:5551 [sender.py:send():379] send: stats
+2025-02-06 19:05:29,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:30,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:31,162 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:05:31,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:32,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:33,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:34,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:35,160 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-06 19:05:35,161 DEBUG   SenderThread:5551 [sender.py:send_request():406] send_request: stop_status
+2025-02-06 19:05:35,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:36,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:36,435 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:05:37,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:38,054 INFO    Thread-12 :5551 [dir_watcher.py:_on_file_modified():288] file/dir modified: /data/zecheng/acl2025/MyRLHF/openrlhf/wandb/run-20250206_190357-eiacv7vb/files/output.log
+2025-02-06 19:05:38,256 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:39,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:40,255 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:41,256 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-06 19:05:42,162 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: status_report
+2025-02-06 19:05:42,276 DEBUG   HandlerThread:5551 [handler.py:handle_request():158] handle_request: internal_messages

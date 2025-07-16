@@ -1,0 +1,253 @@
+wandb_version: 1
+
+direction:
+  desc: null
+  value: opposite
+save_path:
+  desc: null
+  value: /data/zecheng/ckpt/long-context-training-V2/Qwen2.5-7B-Instruct/full_v1
+save_steps:
+  desc: null
+  value: 100
+logging_steps:
+  desc: null
+  value: 1
+eval_steps:
+  desc: null
+  value: 25
+ckpt_path:
+  desc: null
+  value: /data/zecheng/ckpt/long-context-training-V2/Qwen2.5-7B-Instruct/full_v1
+max_ckpt_num:
+  desc: null
+  value: 20
+max_ckpt_mem:
+  desc: null
+  value: 100000000.0
+load_checkpoint:
+  desc: null
+  value: false
+micro_train_batch_size:
+  desc: null
+  value: 1
+train_batch_size:
+  desc: null
+  value: 32
+max_norm:
+  desc: null
+  value: 1.0
+gradient_checkpointing:
+  desc: null
+  value: true
+seed:
+  desc: null
+  value: 42
+local_rank:
+  desc: null
+  value: 0
+zero_stage:
+  desc: null
+  value: 2
+bf16:
+  desc: null
+  value: true
+zpg:
+  desc: null
+  value: 1
+adam_offload:
+  desc: null
+  value: false
+flash_attn:
+  desc: null
+  value: true
+grad_accum_dtype:
+  desc: null
+  value: null
+overlap_comm:
+  desc: null
+  value: false
+gradient_checkpointing_use_reentrant:
+  desc: null
+  value: false
+disable_fast_tokenizer:
+  desc: null
+  value: true
+max_epochs:
+  desc: null
+  value: 2
+aux_loss_coef:
+  desc: null
+  value: 0
+pretrain:
+  desc: null
+  value: /data/hf_models/Qwen2.5-7B-Instruct
+learning_rate:
+  desc: null
+  value: 2.0e-06
+lr_warmup_ratio:
+  desc: null
+  value: 0.03
+pretrain_mode:
+  desc: null
+  value: false
+lr_scheduler:
+  desc: null
+  value: cosine_with_min_lr
+l2:
+  desc: null
+  value: 0
+adam_betas:
+  desc: null
+  value:
+  - 0.9
+  - 0.95
+adv_epsilon:
+  desc: null
+  value: null
+perturb_type:
+  desc: null
+  value: embedding
+loss_weight:
+  desc: null
+  value: 1.0
+huggingface_key:
+  desc: null
+  value: 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
+ring_attn_size:
+  desc: null
+  value: 2
+ring_head_stride:
+  desc: null
+  value: 1
+load_in_4bit:
+  desc: null
+  value: false
+lora_rank:
+  desc: null
+  value: 0
+lora_alpha:
+  desc: null
+  value: 16
+target_modules:
+  desc: null
+  value: all-linear
+lora_dropout:
+  desc: null
+  value: 0
+packing_samples:
+  desc: null
+  value: true
+dataset:
+  desc: null
+  value: /data/pub_data/ZetangForward/Long-context-training-V2
+dataset_probs:
+  desc: null
+  value: '1.0'
+train_split:
+  desc: null
+  value: train
+eval_split:
+  desc: null
+  value: test
+input_key:
+  desc: null
+  value: message
+output_key:
+  desc: null
+  value: null
+input_template:
+  desc: null
+  value: null
+apply_chat_template:
+  desc: null
+  value: true
+search_clue_seg:
+  desc: null
+  value: false
+tokenizer_chat_template:
+  desc: null
+  value: null
+max_samples:
+  desc: null
+  value: 100000000.0
+max_len:
+  desc: null
+  value: 128000
+num_processors:
+  desc: null
+  value: 16
+use_wandb:
+  desc: null
+  value: f81f2a236e712350a0ec153e02f43d1366c856a5
+wandb_org:
+  desc: null
+  value: null
+wandb_group:
+  desc: null
+  value: null
+wandb_project:
+  desc: null
+  value: long-context-training-V2
+wandb_run_name:
+  desc: null
+  value: Qwen2.5-7B-Instruct-embedding-epsilon_lr_2e-6
+use_tensorboard:
+  desc: null
+  value: null
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.14
+    cli_version: 0.17.4
+    framework: huggingface
+    huggingface_version: 4.46.2
+    is_jupyter_run: false
+    is_kaggle_kernel: true
+    start_time: 1738839837
+    t:
+      1:
+      - 1
+      - 5
+      - 11
+      - 30
+      - 41
+      - 49
+      - 51
+      - 53
+      - 55
+      - 71
+      - 98
+      - 105
+      2:
+      - 1
+      - 5
+      - 11
+      - 30
+      - 41
+      - 49
+      - 51
+      - 53
+      - 55
+      - 71
+      - 98
+      - 105
+      3:
+      - 7
+      - 13
+      - 16
+      - 23
+      - 66
+      4: 3.10.14
+      5: 0.17.4
+      6: 4.46.2
+      8:
+      - 2
+      - 5
+      13: linux-x86_64
+    m:
+    - 1: train/global_step
+      6:
+      - 3
+    - 1: eval/global_step
+      6:
+      - 3
