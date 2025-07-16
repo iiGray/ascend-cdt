@@ -1,0 +1,270 @@
+nohup: 忽略输入
+[2025-06-29 01:52:37,837] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+[2025-06-29 01:52:39,673] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+[2025-06-29 01:52:40,211] [WARNING] [runner.py:220:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2025-06-29 01:52:40,211] [INFO] [runner.py:610:main] cmd = /root/anaconda3/envs/bbj/bin/python3.10 -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgMywgNCwgNSwgNiwgN119 --master_addr=127.0.0.1 --master_port=29500 --module --enable_each_rank_log=None train_cdt --max_len 64000 --dataset /data/datas/pg19 --train_batch_size 64 --micro_train_batch_size 1 --pretrain /data/DeepSeek-V2-Lite --save_dir /data/long/deepseek --save_path /data/long/deepseek/model/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k --ckpt_path /data/long/deepseek/ckpt/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k --save_steps 50 --logging_steps 1 --eval_steps 50 --num_training_samples 10000 --zero_stage 2 --max_ckpt_num 20 --max_epochs 2 --pretrain_mode --adv_epsilon 0.01 --input_key text --packing_samples --bf16 --num_processors 32 --learning_rate 2e-6 --flash_attn --gradient_checkpointing --disable_fast_tokenizer --use_tensorboard /data/long/tb_ds --wandb_run_name deepseek-v2-lite_opposite_gradient_large_pos_2e-6_1e-2_64k --perturb_type embedding --direction opposite --ring_attn_size 4 --ring_head_stride 2
+[2025-06-29 01:52:42,169] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+[2025-06-29 01:52:44,225] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+[2025-06-29 01:52:44,746] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3, 4, 5, 6, 7]}
+[2025-06-29 01:52:44,746] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=8, node_rank=0
+[2025-06-29 01:52:44,746] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3, 4, 5, 6, 7]})
+[2025-06-29 01:52:44,746] [INFO] [launch.py:164:main] dist_world_size=8
+[2025-06-29 01:52:44,746] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+[2025-06-29 01:52:44,747] [INFO] [launch.py:256:main] process 66835 spawned with command: ['/root/anaconda3/envs/bbj/bin/python3.10', '-u', '-m', 'train_cdt', '--local_rank=0', '--max_len', '64000', '--dataset', '/data/datas/pg19', '--train_batch_size', '64', '--micro_train_batch_size', '1', '--pretrain', '/data/DeepSeek-V2-Lite', '--save_dir', '/data/long/deepseek', '--save_path', '/data/long/deepseek/model/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--ckpt_path', '/data/long/deepseek/ckpt/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--save_steps', '50', '--logging_steps', '1', '--eval_steps', '50', '--num_training_samples', '10000', '--zero_stage', '2', '--max_ckpt_num', '20', '--max_epochs', '2', '--pretrain_mode', '--adv_epsilon', '0.01', '--input_key', 'text', '--packing_samples', '--bf16', '--num_processors', '32', '--learning_rate', '2e-6', '--flash_attn', '--gradient_checkpointing', '--disable_fast_tokenizer', '--use_tensorboard', '/data/long/tb_ds', '--wandb_run_name', 'deepseek-v2-lite_opposite_gradient_large_pos_2e-6_1e-2_64k', '--perturb_type', 'embedding', '--direction', 'opposite', '--ring_attn_size', '4', '--ring_head_stride', '2']
+[2025-06-29 01:52:44,748] [INFO] [launch.py:256:main] process 66836 spawned with command: ['/root/anaconda3/envs/bbj/bin/python3.10', '-u', '-m', 'train_cdt', '--local_rank=1', '--max_len', '64000', '--dataset', '/data/datas/pg19', '--train_batch_size', '64', '--micro_train_batch_size', '1', '--pretrain', '/data/DeepSeek-V2-Lite', '--save_dir', '/data/long/deepseek', '--save_path', '/data/long/deepseek/model/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--ckpt_path', '/data/long/deepseek/ckpt/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--save_steps', '50', '--logging_steps', '1', '--eval_steps', '50', '--num_training_samples', '10000', '--zero_stage', '2', '--max_ckpt_num', '20', '--max_epochs', '2', '--pretrain_mode', '--adv_epsilon', '0.01', '--input_key', 'text', '--packing_samples', '--bf16', '--num_processors', '32', '--learning_rate', '2e-6', '--flash_attn', '--gradient_checkpointing', '--disable_fast_tokenizer', '--use_tensorboard', '/data/long/tb_ds', '--wandb_run_name', 'deepseek-v2-lite_opposite_gradient_large_pos_2e-6_1e-2_64k', '--perturb_type', 'embedding', '--direction', 'opposite', '--ring_attn_size', '4', '--ring_head_stride', '2']
+[2025-06-29 01:52:44,748] [INFO] [launch.py:256:main] process 66837 spawned with command: ['/root/anaconda3/envs/bbj/bin/python3.10', '-u', '-m', 'train_cdt', '--local_rank=2', '--max_len', '64000', '--dataset', '/data/datas/pg19', '--train_batch_size', '64', '--micro_train_batch_size', '1', '--pretrain', '/data/DeepSeek-V2-Lite', '--save_dir', '/data/long/deepseek', '--save_path', '/data/long/deepseek/model/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--ckpt_path', '/data/long/deepseek/ckpt/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--save_steps', '50', '--logging_steps', '1', '--eval_steps', '50', '--num_training_samples', '10000', '--zero_stage', '2', '--max_ckpt_num', '20', '--max_epochs', '2', '--pretrain_mode', '--adv_epsilon', '0.01', '--input_key', 'text', '--packing_samples', '--bf16', '--num_processors', '32', '--learning_rate', '2e-6', '--flash_attn', '--gradient_checkpointing', '--disable_fast_tokenizer', '--use_tensorboard', '/data/long/tb_ds', '--wandb_run_name', 'deepseek-v2-lite_opposite_gradient_large_pos_2e-6_1e-2_64k', '--perturb_type', 'embedding', '--direction', 'opposite', '--ring_attn_size', '4', '--ring_head_stride', '2']
+[2025-06-29 01:52:44,749] [INFO] [launch.py:256:main] process 66838 spawned with command: ['/root/anaconda3/envs/bbj/bin/python3.10', '-u', '-m', 'train_cdt', '--local_rank=3', '--max_len', '64000', '--dataset', '/data/datas/pg19', '--train_batch_size', '64', '--micro_train_batch_size', '1', '--pretrain', '/data/DeepSeek-V2-Lite', '--save_dir', '/data/long/deepseek', '--save_path', '/data/long/deepseek/model/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--ckpt_path', '/data/long/deepseek/ckpt/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--save_steps', '50', '--logging_steps', '1', '--eval_steps', '50', '--num_training_samples', '10000', '--zero_stage', '2', '--max_ckpt_num', '20', '--max_epochs', '2', '--pretrain_mode', '--adv_epsilon', '0.01', '--input_key', 'text', '--packing_samples', '--bf16', '--num_processors', '32', '--learning_rate', '2e-6', '--flash_attn', '--gradient_checkpointing', '--disable_fast_tokenizer', '--use_tensorboard', '/data/long/tb_ds', '--wandb_run_name', 'deepseek-v2-lite_opposite_gradient_large_pos_2e-6_1e-2_64k', '--perturb_type', 'embedding', '--direction', 'opposite', '--ring_attn_size', '4', '--ring_head_stride', '2']
+[2025-06-29 01:52:44,749] [INFO] [launch.py:256:main] process 66839 spawned with command: ['/root/anaconda3/envs/bbj/bin/python3.10', '-u', '-m', 'train_cdt', '--local_rank=4', '--max_len', '64000', '--dataset', '/data/datas/pg19', '--train_batch_size', '64', '--micro_train_batch_size', '1', '--pretrain', '/data/DeepSeek-V2-Lite', '--save_dir', '/data/long/deepseek', '--save_path', '/data/long/deepseek/model/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--ckpt_path', '/data/long/deepseek/ckpt/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--save_steps', '50', '--logging_steps', '1', '--eval_steps', '50', '--num_training_samples', '10000', '--zero_stage', '2', '--max_ckpt_num', '20', '--max_epochs', '2', '--pretrain_mode', '--adv_epsilon', '0.01', '--input_key', 'text', '--packing_samples', '--bf16', '--num_processors', '32', '--learning_rate', '2e-6', '--flash_attn', '--gradient_checkpointing', '--disable_fast_tokenizer', '--use_tensorboard', '/data/long/tb_ds', '--wandb_run_name', 'deepseek-v2-lite_opposite_gradient_large_pos_2e-6_1e-2_64k', '--perturb_type', 'embedding', '--direction', 'opposite', '--ring_attn_size', '4', '--ring_head_stride', '2']
+[2025-06-29 01:52:44,750] [INFO] [launch.py:256:main] process 66840 spawned with command: ['/root/anaconda3/envs/bbj/bin/python3.10', '-u', '-m', 'train_cdt', '--local_rank=5', '--max_len', '64000', '--dataset', '/data/datas/pg19', '--train_batch_size', '64', '--micro_train_batch_size', '1', '--pretrain', '/data/DeepSeek-V2-Lite', '--save_dir', '/data/long/deepseek', '--save_path', '/data/long/deepseek/model/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--ckpt_path', '/data/long/deepseek/ckpt/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--save_steps', '50', '--logging_steps', '1', '--eval_steps', '50', '--num_training_samples', '10000', '--zero_stage', '2', '--max_ckpt_num', '20', '--max_epochs', '2', '--pretrain_mode', '--adv_epsilon', '0.01', '--input_key', 'text', '--packing_samples', '--bf16', '--num_processors', '32', '--learning_rate', '2e-6', '--flash_attn', '--gradient_checkpointing', '--disable_fast_tokenizer', '--use_tensorboard', '/data/long/tb_ds', '--wandb_run_name', 'deepseek-v2-lite_opposite_gradient_large_pos_2e-6_1e-2_64k', '--perturb_type', 'embedding', '--direction', 'opposite', '--ring_attn_size', '4', '--ring_head_stride', '2']
+[2025-06-29 01:52:44,751] [INFO] [launch.py:256:main] process 66841 spawned with command: ['/root/anaconda3/envs/bbj/bin/python3.10', '-u', '-m', 'train_cdt', '--local_rank=6', '--max_len', '64000', '--dataset', '/data/datas/pg19', '--train_batch_size', '64', '--micro_train_batch_size', '1', '--pretrain', '/data/DeepSeek-V2-Lite', '--save_dir', '/data/long/deepseek', '--save_path', '/data/long/deepseek/model/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--ckpt_path', '/data/long/deepseek/ckpt/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--save_steps', '50', '--logging_steps', '1', '--eval_steps', '50', '--num_training_samples', '10000', '--zero_stage', '2', '--max_ckpt_num', '20', '--max_epochs', '2', '--pretrain_mode', '--adv_epsilon', '0.01', '--input_key', 'text', '--packing_samples', '--bf16', '--num_processors', '32', '--learning_rate', '2e-6', '--flash_attn', '--gradient_checkpointing', '--disable_fast_tokenizer', '--use_tensorboard', '/data/long/tb_ds', '--wandb_run_name', 'deepseek-v2-lite_opposite_gradient_large_pos_2e-6_1e-2_64k', '--perturb_type', 'embedding', '--direction', 'opposite', '--ring_attn_size', '4', '--ring_head_stride', '2']
+[2025-06-29 01:52:44,751] [INFO] [launch.py:256:main] process 66842 spawned with command: ['/root/anaconda3/envs/bbj/bin/python3.10', '-u', '-m', 'train_cdt', '--local_rank=7', '--max_len', '64000', '--dataset', '/data/datas/pg19', '--train_batch_size', '64', '--micro_train_batch_size', '1', '--pretrain', '/data/DeepSeek-V2-Lite', '--save_dir', '/data/long/deepseek', '--save_path', '/data/long/deepseek/model/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--ckpt_path', '/data/long/deepseek/ckpt/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--save_steps', '50', '--logging_steps', '1', '--eval_steps', '50', '--num_training_samples', '10000', '--zero_stage', '2', '--max_ckpt_num', '20', '--max_epochs', '2', '--pretrain_mode', '--adv_epsilon', '0.01', '--input_key', 'text', '--packing_samples', '--bf16', '--num_processors', '32', '--learning_rate', '2e-6', '--flash_attn', '--gradient_checkpointing', '--disable_fast_tokenizer', '--use_tensorboard', '/data/long/tb_ds', '--wandb_run_name', 'deepseek-v2-lite_opposite_gradient_large_pos_2e-6_1e-2_64k', '--perturb_type', 'embedding', '--direction', 'opposite', '--ring_attn_size', '4', '--ring_head_stride', '2']
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+[2025-06-29 01:52:50,013] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-29 01:52:51,259] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+[2025-06-29 01:52:51,260] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-29 01:52:51,992] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-29 01:52:52,016] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-29 01:52:52,019] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-29 01:52:52,030] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-29 01:52:52,034] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-29 01:52:52,043] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-29 01:52:52,090] [INFO] [comm.py:675:init_distributed] cdb=None
+[2025-06-29 01:52:53,102] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+[2025-06-29 01:52:53,286] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+[2025-06-29 01:52:53,330] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+[2025-06-29 01:52:53,361] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+[2025-06-29 01:52:53,367] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+[2025-06-29 01:52:53,403] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+[2025-06-29 01:52:53,434] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+[2025-06-29 01:52:53,713] [INFO] [comm.py:675:init_distributed] cdb=None
+[2025-06-29 01:52:53,713] [INFO] [comm.py:706:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2025-06-29 01:52:54,277] [INFO] [comm.py:675:init_distributed] cdb=None
+[2025-06-29 01:52:54,662] [INFO] [comm.py:675:init_distributed] cdb=None
+[2025-06-29 01:52:54,676] [INFO] [comm.py:675:init_distributed] cdb=None
+[2025-06-29 01:52:54,711] [INFO] [comm.py:675:init_distributed] cdb=None
+[2025-06-29 01:52:54,711] [INFO] [comm.py:675:init_distributed] cdb=None
+[2025-06-29 01:52:54,821] [INFO] [comm.py:675:init_distributed] cdb=None
+length of train_dataset 10000
+length of eval_dataset 27
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+length of train_dataset 10000
+length of eval_dataset 27
+length of train_dataset 10000
+length of eval_dataset 27
+length of train_dataset 10000
+length of eval_dataset 27
+length of train_dataset 10000
+length of eval_dataset 27
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+length of train_dataset 10000
+length of eval_dataset 27
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+length of train_dataset 10000
+length of eval_dataset 27
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+length of train_dataset 10000
+length of eval_dataset 27
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.27s/it]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.09it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.16it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.14it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.09it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.13it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.15it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.15it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.16s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.01it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:02,  1.00s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.05s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:02,  1.01s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.06s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.01it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.01it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.15s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.01s/it]
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.05s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.07s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.07s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.12s/it]Using /root/.cache/torch_extensions/py310_cu124 as PyTorch extensions root...
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.05s/it]Detected CUDA files, patching ldflags
+Emitting ninja build file /root/.cache/torch_extensions/py310_cu124/fused_adam/build.ninja...
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/torch/utils/cpp_extension.py:1964: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Building extension module fused_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.13s/it]ninja: no work to do.
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.05987119674682617 seconds
+[2025-06-29 01:53:22,913] [INFO] [config.py:655:__init__] Config mesh_device None world_size = 8
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.05s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.17it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.11it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.16it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.09it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.15it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.08it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.04it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.17it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.11it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.17it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.10it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.08it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.03it/s]
+Using /root/.cache/torch_extensions/py310_cu124 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /root/.cache/torch_extensions/py310_cu124/fused_adam/build.ninja...
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/torch/utils/cpp_extension.py:1964: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Building extension module fused_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+Actor(
+  (model): DeepseekV2ForCausalLM(
+    (model): DeepseekV2Model(
+      (embed_tokens): Embedding(102400, 2048)
+      (layers): ModuleList(
+        (0): DeepseekV2DecoderLayer(
+          (self_attn): DeepseekV2FlashAttention2(
+            (q_proj): Linear(in_features=2048, out_features=3072, bias=False)
+            (kv_a_proj_with_mqa): Linear(in_features=2048, out_features=576, bias=False)
+            (kv_a_layernorm): DeepseekV2RMSNorm()
+            (kv_b_proj): Linear(in_features=512, out_features=4096, bias=False)
+            (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+            (rotary_emb): DeepseekV2YarnRotaryEmbedding()
+          )
+          (mlp): DeepseekV2MLP(
+            (gate_proj): Linear(in_features=2048, out_features=10944, bias=False)
+            (up_proj): Linear(in_features=2048, out_features=10944, bias=False)
+            (down_proj): Linear(in_features=10944, out_features=2048, bias=False)
+            (act_fn): SiLU()
+          )
+          (input_layernorm): DeepseekV2RMSNorm()
+          (post_attention_layernorm): DeepseekV2RMSNorm()
+        )
+        (1-26): 26 x DeepseekV2DecoderLayer(
+          (self_attn): DeepseekV2FlashAttention2(
+            (q_proj): Linear(in_features=2048, out_features=3072, bias=False)
+            (kv_a_proj_with_mqa): Linear(in_features=2048, out_features=576, bias=False)
+            (kv_a_layernorm): DeepseekV2RMSNorm()
+            (kv_b_proj): Linear(in_features=512, out_features=4096, bias=False)
+            (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+            (rotary_emb): DeepseekV2YarnRotaryEmbedding()
+          )
+          (mlp): DeepseekV2MoE(
+            (experts): ModuleList(
+              (0-63): 64 x DeepseekV2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=1408, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=1408, bias=False)
+                (down_proj): Linear(in_features=1408, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+            )
+            (gate): MoEGate()
+            (shared_experts): DeepseekV2MLP(
+              (gate_proj): Linear(in_features=2048, out_features=2816, bias=False)
+              (up_proj): Linear(in_features=2048, out_features=2816, bias=False)
+              (down_proj): Linear(in_features=2816, out_features=2048, bias=False)
+              (act_fn): SiLU()
+            )
+          )
+          (input_layernorm): DeepseekV2RMSNorm()
+          (post_attention_layernorm): DeepseekV2RMSNorm()
+        )
+      )
+      (norm): DeepseekV2RMSNorm()
+    )
+    (lm_head): Linear(in_features=2048, out_features=102400, bias=False)
+  )
+)
+ninja: no work to do.
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.05748391151428223 seconds
+[2025-06-29 01:53:23,658] [INFO] [config.py:655:__init__] Config mesh_device None world_size = 8
+Using /root/.cache/torch_extensions/py310_cu124 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /root/.cache/torch_extensions/py310_cu124/fused_adam/build.ninja...
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/torch/utils/cpp_extension.py:1964: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Building extension module fused_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+Using /root/.cache/torch_extensions/py310_cu124 as PyTorch extensions root...
+ninja: no work to do.
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.05126953125 seconds
+Using /root/.cache/torch_extensions/py310_cu124 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /root/.cache/torch_extensions/py310_cu124/fused_adam/build.ninja...
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/torch/utils/cpp_extension.py:1964: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Building extension module fused_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+Using /root/.cache/torch_extensions/py310_cu124 as PyTorch extensions root...
+ninja: no work to do.
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.049533843994140625 seconds
+[2025-06-29 01:53:23,886] [INFO] [config.py:655:__init__] Config mesh_device None world_size = 8
+Using /root/.cache/torch_extensions/py310_cu124 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /root/.cache/torch_extensions/py310_cu124/fused_adam/build.ninja...
+/root/anaconda3/envs/bbj/lib/python3.10/site-packages/torch/utils/cpp_extension.py:1964: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Building extension module fused_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+Using /root/.cache/torch_extensions/py310_cu124 as PyTorch extensions root...
+ninja: no work to do.
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.049165964126586914 seconds
+[2025-06-29 01:53:23,967] [INFO] [config.py:655:__init__] Config mesh_device None world_size = 8
+[2025-06-29 01:53:23,997] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed info: version=0.17.1, git-hash=unknown, git-branch=unknown
+[2025-06-29 01:53:23,998] [INFO] [comm.py:700:init_distributed] Distributed backend already initialized
+[2025-06-29 01:53:23,998] [INFO] [config.py:655:__init__] Config mesh_device None world_size = 8
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.3018341064453125 seconds
+Loading extension module fused_adam...
+[2025-06-29 01:53:24,037] [INFO] [config.py:655:__init__] Config mesh_device None world_size = 8
+Time to load fused_adam op: 0.10132765769958496 seconds
+[2025-06-29 01:53:24,039] [INFO] [config.py:655:__init__] Config mesh_device None world_size = 8
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.2015373706817627 seconds
+[2025-06-29 01:53:24,044] [INFO] [config.py:655:__init__] Config mesh_device None world_size = 8
+[2025-06-29 01:53:39,245] [INFO] [engine.py:1325:_configure_distributed_model] ********** distributed groups summary **********
+	 self.dp_world_size=8
+	 self.mp_world_size=1
+	 self.seq_dp_world_size=8
+	 self.sequence_parallel_size=1
+***********************************************
+[2025-06-29 01:53:49,023] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-06-29 01:53:49,034] [INFO] [logging.py:107:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2025-06-29 01:53:49,034] [INFO] [logging.py:107:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2025-06-29 01:53:51,141] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed Basic Optimizer = FusedAdam
+[2025-06-29 01:53:51,141] [INFO] [utils.py:59:is_zero_supported_optimizer] Checking ZeRO support for optimizer=FusedAdam type=<class 'deepspeed.ops.adam.fused_adam.FusedAdam'>
+[2025-06-29 01:53:51,142] [INFO] [logging.py:107:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 2 optimizer
+[2025-06-29 01:53:51,142] [INFO] [stage_1_and_2.py:151:__init__] Reduce bucket size 500000000
+[2025-06-29 01:53:51,142] [INFO] [stage_1_and_2.py:152:__init__] Allgather bucket size 500000000
+[2025-06-29 01:53:51,142] [INFO] [stage_1_and_2.py:153:__init__] CPU Offload: False
+[2025-06-29 01:53:51,142] [INFO] [stage_1_and_2.py:154:__init__] Round robin gradient partitioning: False
+/root/anaconda3/envs/bbj/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[2025-06-29 01:54:23,892] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 66835
+/root/anaconda3/envs/bbj/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[2025-06-29 01:54:26,111] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 66836
+/root/anaconda3/envs/bbj/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[2025-06-29 01:54:28,519] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 66837
+/root/anaconda3/envs/bbj/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[2025-06-29 01:54:29,942] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 66838
+/root/anaconda3/envs/bbj/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[2025-06-29 01:54:31,151] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 66839
+/root/anaconda3/envs/bbj/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[2025-06-29 01:54:32,298] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 66840
+[2025-06-29 01:54:32,298] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 66841
+/root/anaconda3/envs/bbj/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[2025-06-29 01:54:33,385] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 66842
+/root/anaconda3/envs/bbj/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[2025-06-29 01:54:34,403] [ERROR] [launch.py:325:sigkill_handler] ['/root/anaconda3/envs/bbj/bin/python3.10', '-u', '-m', 'train_cdt', '--local_rank=7', '--max_len', '64000', '--dataset', '/data/datas/pg19', '--train_batch_size', '64', '--micro_train_batch_size', '1', '--pretrain', '/data/DeepSeek-V2-Lite', '--save_dir', '/data/long/deepseek', '--save_path', '/data/long/deepseek/model/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--ckpt_path', '/data/long/deepseek/ckpt/pg19/deepseek-v2-lite/opposite_gradient_large_pos_2e-6_1e-2_64k', '--save_steps', '50', '--logging_steps', '1', '--eval_steps', '50', '--num_training_samples', '10000', '--zero_stage', '2', '--max_ckpt_num', '20', '--max_epochs', '2', '--pretrain_mode', '--adv_epsilon', '0.01', '--input_key', 'text', '--packing_samples', '--bf16', '--num_processors', '32', '--learning_rate', '2e-6', '--flash_attn', '--gradient_checkpointing', '--disable_fast_tokenizer', '--use_tensorboard', '/data/long/tb_ds', '--wandb_run_name', 'deepseek-v2-lite_opposite_gradient_large_pos_2e-6_1e-2_64k', '--perturb_type', 'embedding', '--direction', 'opposite', '--ring_attn_size', '4', '--ring_head_stride', '2'] exits with return code = -9
