@@ -28,8 +28,7 @@ deepspeed --master_port 29500 --include localhost:0,1,2,3,4,5,6,7 cli/context_de
    --apply_chat_template \
    --gradient_checkpointing \
    --disable_fast_tokenizer \
-   --use_wandb 'f81f2a236e712350a0ec153e02f43d1366c856a5' \
-   --huggingface_key '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' \
+   --use_wandb '' \
    --wandb_project 'long-context-training-V1' \
    --wandb_run_name 'Llama-3.1-8B-Instruct-full-embedding-epsilon_lr' \
    --ring_attn_size 4 \
