@@ -1,8 +1,7 @@
-from typing import Optional
+# Copyright (c) 2024, HUAWEI CORPORATION.  All rights reserved.
 import os
 from functools import partial
 import torch
-from torch import Tensor
 from megatron.training import get_args, get_tokenizer
 from megatron.core import mpu, tensor_parallel
 from megatron.training.utils import (
@@ -11,23 +10,13 @@ from megatron.training.utils import (
     average_losses_across_data_parallel_group
 )
 from megatron.training import get_timers
-
-from megatron.core import InferenceParams, parallel_state, tensor_parallel
-
-from megatron.core.models.gpt import GPTModel
 from mindspeed_llm.training.utils import get_tune_attention_mask, get_finetune_data_on_this_tp_rank, generate_actual_seq_len
-
 from mindspeed_llm.tasks.posttrain.base import BaseTrainer
-from mindspeed_llm.tasks.posttrain.cdt.model_utils import CDTGPTModel
-
 
 IGNORE_INDEX = -100
 
 
-
-
-
-class CDTTrainer(BaseTrainer):
+class SFTTrainer(BaseTrainer):
     def __init__(self):
         super().__init__()
     
@@ -155,10 +144,7 @@ class CDTTrainer(BaseTrainer):
         # Reduce loss for logging.
         averaged_loss = average_losses_across_data_parallel_group([loss])
 
-        final_loss = loss * self.args.context_parallel_size
-        final_loss.INFO_DICT = output_tensor.INFO_DICT
-
-        return final_loss, {'lm loss': averaged_loss[0]}
+        return loss * self.args.context_parallel_size, {'lm loss': averaged_loss[0]}
 
     def forward_step(self, data_iterator, model):
         """Forward training step.
@@ -177,12 +163,9 @@ class CDTTrainer(BaseTrainer):
 
         output_tensor = model(tokens, position_ids, attention_mask,
                               labels=labels)
-        
-        output_tensor.INFO_DICT["loss_mask"] = loss_mask
 
-        # if self.args.num_nextn_predict_layers and loss_mask is not None:
-        #     return output_tensor, partial(self.loss_func,
-        #                                   loss_mask[:, :loss_mask.shape[-1] - self.args.num_nextn_predict_layers])
-        # else:
-        
-        return output_tensor, partial(self.loss_func, loss_mask)
+        if self.args.num_nextn_predict_layers and loss_mask is not None:
+            return output_tensor, partial(self.loss_func,
+                                          loss_mask[:, :loss_mask.shape[-1] - self.args.num_nextn_predict_layers])
+        else:
+            return output_tensor, partial(self.loss_func, loss_mask)

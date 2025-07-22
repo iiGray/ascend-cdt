@@ -1,25 +1,21 @@
 
 import contextlib
 from functools import partial
-from typing import Callable, Iterator, List, Optional, Union
+from typing import Callable, Iterator, List, Optional, Union, Literal
 
 import torch
 from torch.autograd.variable import Variable
 
+from megatron.training import get_args
+from megatron.core.models.gpt import GPTModel
 from megatron.core import parallel_state
 from megatron.core.enums import ModelType
-from megatron.core.pipeline_parallel import p2p_communication
-from megatron.core.transformer.cuda_graphs import create_cudagraphs
 from megatron.core.transformer.moe.router import MoEAuxLossAutoScaler
 from megatron.core.transformer.multi_token_prediction import MTPLossAutoScaler
 from megatron.core.utils import (
-    drain_embedding_wgrad_compute,
     get_attr_wrapped_model,
     get_model_config,
     get_model_type,
-    get_model_xattn,
-    nvtx_range_pop,
-    nvtx_range_push,
 )
 
 from megatron.core.pipeline_parallel.schedules import (
@@ -29,13 +25,18 @@ from megatron.core.pipeline_parallel.schedules import (
     backward_step
 )
 
+from mindspeed_llm.tasks.posttrain.cdt.model_utils import CDTGPTModel
+
 # Types
 Shape = Union[List[int], torch.Size]
 
 def forward_embedding_step(
-    forward_embedding_step_func,
-    data_iterator,
-    model,
+    input_embeds,
+    position_ids,
+    loss_mask,
+    attention_mask,
+    labels,
+    model: CDTGPTModel,
     num_microbatches,
     input_tensor,
     forward_data_store,
@@ -47,6 +48,7 @@ def forward_embedding_step(
     encoder_decoder_xattn=False,
     vp_stage=None,
 ):
+    assert isinstance(model, CDTGPTModel), str(model)
     if config.timers is not None:
         config.timers('forward-compute', log_level=2).start()
 
@@ -69,11 +71,15 @@ def forward_embedding_step(
         context_manager = contextlib.nullcontext()
     with context_manager:
         if checkpoint_activations_microbatch is None:
-            output_tensor, loss_func = forward_embedding_step_func(data_iterator, model)
-        else:
-            output_tensor, loss_func = forward_embedding_step_func(
-                data_iterator, model, checkpoint_activations_microbatch
+            output_tensor, loss_func = model.forward_embedding_step(
+                input_embeds = input_embeds, position_ids = position_ids,
+                loss_mask = loss_mask, attention_mask = attention_mask, labels = labels
             )
+        else:
+            assert False
+            # output_tensor, loss_func = forward_embedding_step_func(
+            #     data_iterator, model, checkpoint_activations_microbatch
+            # )
 
     model_vp_stage = getattr(model, "vp_stage", None)
     if vp_stage is not None and model_vp_stage is not None:
@@ -148,8 +154,37 @@ def forward_embedding_step(
     return [output_tensor], num_tokens
 
 
+def perturb_ipt_embedding(inputs_embeds,
+                          epsilon: float = None,
+                          perturb_type: Literal["opposite",
+                                                "other",
+                                                "both"] = "opposite"):
 
-def forward_backward_no_pipelining(
+    l2_grad = torch.norm(inputs_embeds.grad, p = 2, dim = -1)
+    avg_grad = l2_grad.mean(dim = -1, keepdim = True)
+
+    has_large_grad = l2_grad > avg_grad
+
+    factor = torch.ones_like(l2_grad) * self.scheduler.get_last_lr()[0] \
+        * self.config.beta if epsilon is None else epsilon / (1 + l2_grad)
+
+    if perturb_type == "opposite":
+        has_large_grad = ~has_large_grad
+        factor = -factor
+
+    if perturb_type == "both":
+        perturbaiton = torch.where(
+            has_large_grad.unsqueeze(-1),
+            factor.unsqueeze(-1) * inputs_embeds.grad,  
+            -factor.unsqueeze(-1) * inputs_embeds.grad,
+        )
+    else:
+        perturbaiton = (factor * has_large_grad).unsqueeze(-1) * inputs_embeds.grad 
+    
+    adv_embeds = inputs_embeds + perturbaiton
+    return adv_embeds.detach().requires_grad_(True)
+
+def forward_backward_twice_no_pipelining(
     *,
     forward_step_func,
     data_iterator: Union[Iterator, List[Iterator]],
@@ -157,12 +192,12 @@ def forward_backward_no_pipelining(
     num_microbatches: int,
     seq_length: int,  # unused
     micro_batch_size: int,  # unused
-    decoder_seq_length: Optional[int] = None,  # unused
+    decoder_seq_length: int = None,  # unused
     forward_only: bool = False,
     collect_non_loss_data: bool = False,
-    first_val_step: Optional[bool] = None,
-    adjust_tensor_shapes_fn: Optional[Callable] = None,  # unused
+    first_val_step: bool = None,
 ):
+    args = get_args()
     """Run forward and backward passes with no pipeline parallelism
     (no inter-stage communication).
 
@@ -175,14 +210,12 @@ def forward_backward_no_pipelining(
     if isinstance(model, list):
         assert len(model) == 1, "non-pipeline-parallel schedule does not support model chunking"
         model = model[0]
+        assert isinstance(model, GPTModel)
     if isinstance(data_iterator, list):
         assert (
             len(data_iterator) == 1
         ), "non-pipeline-parallel schedule does not support model chunking"
         data_iterator = data_iterator[0]
-    assert (
-        adjust_tensor_shapes_fn is None
-    ), "adjust_tensor_shapes_fn is not supported for non-pipeline-parallel schedule"
 
     config = get_model_config(model)
     if config.timers is not None:
@@ -197,6 +230,8 @@ def forward_backward_no_pipelining(
     forward_data_store = []
     input_tensor, output_tensor_grad = None, None
     total_num_tokens = torch.zeros([], dtype=torch.int, device="cuda")
+
+    INFO_DICTS = []
     with no_sync_func():
         for i in range(num_microbatches - 1):
             output_tensor, num_tokens = forward_step(
@@ -211,7 +246,8 @@ def forward_backward_no_pipelining(
                 is_first_microbatch=check_first_val_step(first_val_step, forward_only, i == 0),
                 current_microbatch=i,
             )
-            total_num_tokens += num_tokens
+            INFO_DICTS += [output_tensor.INFO_DICT]
+            total_num_tokens += num_tokens.item()
             if not forward_only:
                 backward_step(input_tensor, output_tensor, output_tensor_grad, model_type, config)
 
@@ -231,7 +267,74 @@ def forward_backward_no_pipelining(
         ),
         current_microbatch=num_microbatches - 1,
     )
-    total_num_tokens += num_tokens
+    INFO_DICTS += [output_tensor.INFO_DICT]
+    total_num_tokens += num_tokens.item()
+    if not forward_only:
+        backward_step(input_tensor, output_tensor, output_tensor_grad, model_type, config)
+
+    if config.finalize_model_grads_func is not None and not forward_only:
+        # Finalize model grads (perform full grad all-reduce / reduce-scatter for
+        # data parallelism and layernorm all-reduce for sequence parallelism).
+        config.finalize_model_grads_func(
+            [model], total_num_tokens if config.calculate_per_token_loss else None
+        )
+    #=============================== Perturbatin ================================#
+
+
+    perturbed_embeds_lists = []
+    for i in range(num_microbatches):
+        perturbed_embeds_lists += [perturb_ipt_embedding(
+            INFO_DICTS[i]["input_embeds"], 
+            epsilon = args.cdt_epsilon, 
+            perturb_type = args.cdt_type)]
+
+    model.zero_grad()
+
+    #========================= second forward backward ==========================#
+    forward_data_store = []
+    input_tensor, output_tensor_grad = None, None
+    total_num_tokens = torch.zeros([], dtype=torch.int, device="cuda")
+    with no_sync_func():
+        for i in range(num_microbatches - 1):
+            output_tensor, num_tokens = forward_embedding_step(
+                INFO_DICTS[i]["input_embeds"],
+                INFO_DICTS[i]["position_ids"],
+                INFO_DICTS[i]["loss_mask"],
+                INFO_DICTS[i]["attention_mask"],
+                INFO_DICTS[i]["labels"],
+                model,
+                num_microbatches,
+                input_tensor,
+                forward_data_store,
+                config,
+                collect_non_loss_data,
+                is_first_microbatch=check_first_val_step(first_val_step, forward_only, i == 0),
+                current_microbatch=i,
+            )
+            total_num_tokens += num_tokens.item()
+            if not forward_only:
+                backward_step(input_tensor, output_tensor, output_tensor_grad, model_type, config)
+
+    # Run computation for last microbatch out of context handler (want to
+    # synchronize gradients).
+    output_tensor, num_tokens = forward_embedding_step(
+        INFO_DICTS[-1]["input_embeds"],
+        INFO_DICTS[-1]["position_ids"],
+        INFO_DICTS[-1]["loss_mask"],
+        INFO_DICTS[-1]["attention_mask"],
+        INFO_DICTS[-1]["labels"],
+        model,
+        num_microbatches,
+        input_tensor,
+        forward_data_store,
+        config,
+        collect_non_loss_data,
+        is_first_microbatch=check_first_val_step(
+            first_val_step, forward_only, num_microbatches == 1
+        ),
+        current_microbatch=num_microbatches - 1,
+    )
+    total_num_tokens += num_tokens.item()
 
     if not forward_only:
         backward_step(input_tensor, output_tensor, output_tensor_grad, model_type, config)
@@ -243,10 +346,8 @@ def forward_backward_no_pipelining(
             [model], total_num_tokens if config.calculate_per_token_loss else None
         )
 
+
     if config.timers is not None:
         config.timers('forward-backward').stop()
-
-    if hasattr(config, 'enable_cuda_graph') and config.enable_cuda_graph:
-        create_cudagraphs()
 
     return forward_data_store

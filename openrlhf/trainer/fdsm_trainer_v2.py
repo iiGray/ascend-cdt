@@ -75,7 +75,7 @@ class CDTTrainer(ABC):
         self._tensorboard = None
         if self.strategy.args.use_wandb and self.strategy.is_rank_0():
             import wandb
-            self._wandb = wandba
+            self._wandb = wandb
             if not wandb.api.api_key:
                 wandb.login(key=strategy.args.use_wandb)
             wandb.init(
